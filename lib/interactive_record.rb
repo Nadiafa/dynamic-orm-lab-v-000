@@ -52,9 +52,11 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
   
-  def self.find_by(#{col_names_for_insert})
+  def self.find_by(search_att)
   
-  sql = 
+  sql = "SELECT * FROM #{table_name_for_insert} WHERE (#{col_names_for_insert}) = ?"
+  
+  DB[:conn].execute(sql, search_att)
     
   end
   
